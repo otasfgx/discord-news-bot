@@ -11,7 +11,7 @@ class GoogleNews {
 
   getGoogleNews(){
     const payload = {
-    'word': this.word,
+      'keyword': this.word,
     };
 
     const options = {
@@ -21,7 +21,7 @@ class GoogleNews {
 
     const response = UrlFetchApp.fetch(this.rss_api_url,options);
     const json = JSON.parse(response);
-    const news = json[0]["link"];
+    const news = json[0]["title"] + "\n" + json[0]["link"];
     return news;
   }
 }
